@@ -1,0 +1,10 @@
+dimDate = ADDCOLUMNS(
+CALENDAR(DATE(2023,1,1),DATE(2099,12,31)),
+"Year", YEAR([Date]),
+"Quarter", "Q" & FORMAT ( [Date], "Q" ),
+"Month", MONTH([Date]),
+"Month Of Year", "Tháng " & if(MONTH([Date]) <10, "0" & MONTH([Date]), MONTH([Date])) & "/" & YEAR([Date]),
+"Day", DAY([Date]),
+"Day of Month ", DAY([Date]) & "/" & MONTH([Date]) & "/" & YEAR([Date]),
+"Working Date", IF(WEEKDAY([Date])=1, "No", "Yes")
+)
